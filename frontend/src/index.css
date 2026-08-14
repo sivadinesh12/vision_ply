@@ -1,0 +1,173 @@
+:root {
+  /* Color tokens — grounded in timber & veneer tones */
+  --espresso: #241813;      /* deepest brown, near-black */
+  --walnut: #5b3a29;        /* primary brown */
+  --walnut-light: #7a5138;
+  --honey: #c68642;         /* amber accent */
+  --honey-light: #e0a962;
+  --parchment: #efe6d8;     /* warm background */
+  --parchment-deep: #e4d7c1;
+  --charcoal: #2a2521;      /* body text */
+  --moss: #5f6f52;          /* certification / trust accent */
+  --cream: #fbf8f2;
+  --line: rgba(36, 24, 19, 0.14);
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius: 6px;
+  --shadow-soft: 0 8px 24px rgba(36, 24, 19, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--espresso);
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--honey);
+  font-weight: 500;
+}
+
+.section {
+  padding: 88px 0;
+}
+
+.section--tight {
+  padding: 64px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn--primary {
+  background: var(--honey);
+  color: var(--espresso);
+}
+.btn--primary:hover {
+  background: var(--honey-light);
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--parchment-deep);
+  color: var(--cream);
+}
+.btn--outline:hover {
+  border-color: var(--honey);
+  color: var(--honey);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--honey);
+  outline-offset: 2px;
+}
+
+/* Shared two-column layout used by About, Specs and Contact.
+   Collapses to a single column on small/medium screens instead of
+   squeezing a fixed grid and causing overflow. */
+.two-col {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.two-col-equal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+@media (max-width: 900px) {
+  .two-col,
+  .two-col-equal {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section--tight {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
