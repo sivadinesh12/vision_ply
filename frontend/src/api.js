@@ -1,4 +1,4 @@
-const BASE = "/api";
+const BASE = import.meta.env.VITE_API_URL;
 
 async function handle(res) {
   if (!res.ok) {
@@ -9,10 +9,10 @@ async function handle(res) {
 }
 
 export const api = {
-  getCompanyInfo: () => fetch(`${BASE}/company`).then(handle),
+  getCompanyInfo: () => fetch(`${BASE}/companyinfos`).then(handle),
   getProducts: () => fetch(`${BASE}/products`).then(handle),
   submitContact: (payload) =>
-    fetch(`${BASE}/contact`, {
+    fetch(`${BASE}/contactmessages`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

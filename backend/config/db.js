@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 async function connectDB() {
   const uri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/visionply";
+  const dns = require("dns");
+  dns.setServers(["8.8.8.8", "8.8.4.4"]);
   try {
     await mongoose.connect(uri);
     console.log(`[db] connected -> ${uri}`);
