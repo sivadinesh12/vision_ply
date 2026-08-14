@@ -50,7 +50,7 @@ export default function Navbar({ company }) {
             maxWidth: "70vw",
           }}
         >
-          {company?.name || "VISION PLY"}
+          {company?.name || "OLYMPIC TRADERS"}
         </a>
 
         <nav

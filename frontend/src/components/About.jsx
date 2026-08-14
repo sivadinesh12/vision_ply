@@ -14,7 +14,13 @@ export default function About({ company }) {
           <img
             src="/images/about/plywood.jpg"
             alt="Cross-section of engineered plywood layers"
-            style={{ width: "100%", height: "100%", objectFit: "cover", mixBlendMode: "luminosity", opacity: 0.85 }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              mixBlendMode: "luminosity",
+              opacity: 0.85,
+            }}
           />
         </div>
 
@@ -25,11 +31,18 @@ export default function About({ company }) {
           </h2>
           <p style={{ fontSize: "1.05rem", color: "var(--walnut)" }}>
             {company?.aboutFull ||
-              "Vision Ply blends technology, quality and aesthetics to meet the varied needs of builders, architects and homeowners."}
+              "OLYMPIC TRADERS blends technology, quality and aesthetics to meet the varied needs of builders, architects and homeowners."}
           </p>
 
           {company?.certifications?.length > 0 && (
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 24 }}>
+            <div
+              style={{
+                display: "flex",
+                gap: 12,
+                flexWrap: "wrap",
+                marginTop: 24,
+              }}
+            >
               {company.certifications.map((c) => (
                 <span
                   key={c}

@@ -22,7 +22,7 @@ const products = [
 ];
 
 const companyInfo = {
-  name: "VISION PLY",
+  name: "OLYMPIC TRADERS",
   tagline: "AN ISO 9001 & 14001, OHSAS 18001 COMPANY",
   aboutShort:
     "VISIONPLY is the sheer manifestation of how technology, quality and aesthetics could be blended in tandem to meet the variant customer needs.",
@@ -49,13 +49,46 @@ const companyInfo = {
     { text: "Chemically Treated" },
   ],
   brands: [
-    { name: "Brand One", image: "/images/brands/logo1.png", tagline: "5 Times Money Back Guarantee" },
-    { name: "Brand Two", image: "/images/brands/logo2.png", tagline: "3 Times Money Back Guarantee" },
-    { name: "Brand Three", image: "/images/brands/logo3.png", tagline: "Life Time Guarantee" },
+    {
+      name: "Brand One",
+      image: "/images/brands/logo1.png",
+      tagline: "5 Times Money Back Guarantee",
+    },
+    {
+      name: "Brand Two",
+      image: "/images/brands/logo2.png",
+      tagline: "3 Times Money Back Guarantee",
+    },
+    {
+      name: "Brand Three",
+      image: "/images/brands/logo3.png",
+      tagline: "Life Time Guarantee",
+    },
   ],
-  standardSizes: ["8’ x 4’", "8’ x 3’", "7’ x 4’", "7’ x 3’", "6’ x 4’", "6’ x 3’"],
-  standardThickness: ["4 mm", "6 mm", "9 mm", "12 mm", "15 mm", "16 mm", "18 mm", "19 mm", "25 mm"],
-  heroSlides: ["/images/banners/banner1.jpg", "/images/banners/banner2.jpg", "/images/banners/banner3.jpg"],
+  standardSizes: [
+    "8’ x 4’",
+    "8’ x 3’",
+    "7’ x 4’",
+    "7’ x 3’",
+    "6’ x 4’",
+    "6’ x 3’",
+  ],
+  standardThickness: [
+    "4 mm",
+    "6 mm",
+    "9 mm",
+    "12 mm",
+    "15 mm",
+    "16 mm",
+    "18 mm",
+    "19 mm",
+    "25 mm",
+  ],
+  heroSlides: [
+    "/images/banners/banner1.jpg",
+    "/images/banners/banner2.jpg",
+    "/images/banners/banner3.jpg",
+  ],
 };
 
 async function seed() {

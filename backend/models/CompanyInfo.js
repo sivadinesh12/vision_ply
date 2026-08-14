@@ -16,7 +16,7 @@ const brandSchema = new mongoose.Schema(
 
 const companyInfoSchema = new mongoose.Schema(
   {
-    name: { type: String, default: "VISION PLY" },
+    name: { type: String, default: "OLYMPIC TRADERS" },
     tagline: { type: String, default: "" },
     aboutShort: { type: String, default: "" },
     aboutFull: { type: String, default: "" },
@@ -36,7 +36,7 @@ const companyInfoSchema = new mongoose.Schema(
     standardThickness: [{ type: String }],
     heroSlides: [{ type: String }],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 module.exports = mongoose.model("CompanyInfo", companyInfoSchema);

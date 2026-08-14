@@ -49,7 +49,7 @@ export default function Hero({ company }) {
             maxWidth: 640,
           }}
         >
-          Welcome to {company?.name || "Vision Ply"}
+          Welcome to {company?.name || "OLYMPIC TRADERS"}
         </h1>
         <p
           style={{
@@ -61,7 +61,9 @@ export default function Hero({ company }) {
           {company?.aboutShort ||
             "Where technology, quality and aesthetics blend to meet every customer's needs."}
         </p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 8 }}>
+        <div
+          style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 8 }}
+        >
           <a href="#products" className="btn btn--primary">
             View Products
           </a>
@@ -93,7 +95,8 @@ export default function Hero({ company }) {
               height: 4,
               borderRadius: 2,
               border: "none",
-              background: i === index ? "var(--honey)" : "rgba(255,255,255,0.4)",
+              background:
+                i === index ? "var(--honey)" : "rgba(255,255,255,0.4)",
               transition: "width 0.25s ease, background 0.25s ease",
             }}
           />
