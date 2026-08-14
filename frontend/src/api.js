@@ -9,10 +9,10 @@ async function handle(res) {
 }
 
 export const api = {
-  getCompanyInfo: () => fetch(`${BASE}/companyinfos`).then(handle),
+  getCompanyInfo: () => fetch(`${BASE}/company`).then(handle),
   getProducts: () => fetch(`${BASE}/products`).then(handle),
   submitContact: (payload) =>
-    fetch(`${BASE}/contactmessages`, {
+    fetch(`${BASE}/contact`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
