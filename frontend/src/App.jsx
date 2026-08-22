@@ -1,62 +1,31 @@
-import { useEffect, useState } from "react";
-import { api } from "./api";
+import { Routes, Route } from "react-router-dom";
+import { companyInfo } from "./data/siteContent";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import VeneerDivider from "./components/VeneerDivider";
-import Products from "./components/Products";
-import Specs from "./components/Specs";
-import Brands from "./components/Brands";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
+import Home from "./pages/Home";
+import AboutPage from "./pages/AboutPage";
+import ProductsPage from "./pages/ProductsPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import ContactPage from "./pages/ContactPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
-  const [company, setCompany] = useState(null);
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    Promise.all([api.getCompanyInfo(), api.getProducts()])
-      .then(([companyData, productData]) => {
-        setCompany(companyData);
-        setProducts(productData);
-      })
-      .catch((err) => setError(err.message));
-  }, []);
-
-  if (error) {
-    return (
-      <div style={{ padding: 60, textAlign: "center", fontFamily: "var(--font-body)" }}>
-        <h2>Couldn't load the site content</h2>
-        <p>{error}</p>
-        <p style={{ color: "var(--walnut)" }}>
-          Make sure the backend is running and seeded (<code>npm run seed</code>) at
-          the URL configured in <code>vite.config.js</code>.
-        </p>
-      </div>
-    );
-  }
-
-  if (!company) {
-    return (
-      <div style={{ padding: 60, textAlign: "center" }}>
-        <p>Loading…</p>
-      </div>
-    );
-  }
-
   return (
     <>
-      <Navbar company={company} />
-      <Hero company={company} />
-      <About company={company} />
-      <VeneerDivider />
-      <Products products={products} />
-      <Specs company={company} />
-      <Brands company={company} />
-      <VeneerDivider tone="dark" />
-      <Contact company={company} />
-      <Footer company={company} />
+      <ScrollToTop />
+      <Navbar company={companyInfo} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:slug" element={<ProductDetailPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <Footer company={companyInfo} />
+      <WhatsAppButton />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Hero({ company }) {
   const slides = company?.heroSlides?.length
@@ -64,12 +65,12 @@ export default function Hero({ company }) {
         <div
           style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 8 }}
         >
-          <a href="#products" className="btn btn--primary">
+          <Link to="/products" className="btn btn--primary">
             View Products
-          </a>
-          <a href="#about" className="btn btn--outline">
+          </Link>
+          <Link to="/about" className="btn btn--outline">
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
 

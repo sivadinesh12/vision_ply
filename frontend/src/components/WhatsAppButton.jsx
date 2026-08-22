@@ -1,10 +1,11 @@
-const WHATSAPP_NUMBER = "917868041691";
+import { companyInfo } from "../data/siteContent";
 
 export default function WhatsAppButton() {
+  const number = companyInfo.whatsappNumber;
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-        "Hi, I'd like to know more about your plywood products."
+      href={`https://wa.me/${number}?text=${encodeURIComponent(
+        "Hi, I'd like to know more about your products."
       )}`}
       target="_blank"
       rel="noopener noreferrer"

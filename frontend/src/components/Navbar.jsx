@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About Us" },
-  { href: "#products", label: "Products" },
-  { href: "#contact", label: "Contact Us" },
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About Us" },
+  { to: "/products", label: "Products" },
+  { to: "/contact", label: "Contact Us" },
 ];
 
 export default function Navbar({ company }) {
@@ -13,9 +14,15 @@ export default function Navbar({ company }) {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const linkColor = (isActive) => {
+    if (isActive) return "var(--honey)";
+    return scrolled ? "var(--parchment)" : "var(--espresso)";
+  };
 
   return (
     <header
@@ -23,8 +30,9 @@ export default function Navbar({ company }) {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: scrolled ? "rgba(36,24,19,0.97)" : "transparent",
-        transition: "background 0.25s ease",
+        background: scrolled ? "rgba(36,24,19,0.97)" : "var(--parchment)",
+        boxShadow: scrolled ? "0 4px 16px rgba(0,0,0,0.12)" : "none",
+        transition: "background 0.25s ease, box-shadow 0.25s ease",
       }}
     >
       <div
@@ -36,8 +44,8 @@ export default function Navbar({ company }) {
           height: 78,
         }}
       >
-        <a
-          href="#home"
+        <Link
+          to="/"
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "1.4rem",
@@ -51,27 +59,24 @@ export default function Navbar({ company }) {
           }}
         >
           {company?.name || "OLYMPIC TRADERS"}
-        </a>
+        </Link>
 
-        <nav
-          style={{
-            display: "flex",
-            gap: 36,
-          }}
-          className="nav-desktop"
-        >
+        <nav style={{ display: "flex", gap: 36 }} className="nav-desktop">
           {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              style={{
-                fontWeight: 500,
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
+              style={({ isActive }) => ({
+                fontWeight: 600,
                 fontSize: "0.95rem",
-                color: scrolled ? "var(--parchment)" : "var(--espresso)",
-              }}
+                color: linkColor(isActive),
+                borderBottom: isActive ? "2px solid var(--honey)" : "2px solid transparent",
+                paddingBottom: 4,
+              })}
             >
               {l.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -87,7 +92,7 @@ export default function Navbar({ company }) {
             color: scrolled ? "var(--cream)" : "var(--espresso)",
           }}
         >
-          ☰
+          {open ? "✕" : "☰"}
         </button>
       </div>
 
@@ -99,19 +104,20 @@ export default function Navbar({ company }) {
           }}
         >
           {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
               onClick={() => setOpen(false)}
-              style={{
+              style={({ isActive }) => ({
                 display: "block",
                 padding: "10px 0",
-                color: "var(--parchment)",
+                color: isActive ? "var(--honey)" : "var(--parchment)",
                 borderBottom: "1px solid rgba(255,255,255,0.08)",
-              }}
+              })}
             >
               {l.label}
-            </a>
+            </NavLink>
           ))}
         </div>
       )}

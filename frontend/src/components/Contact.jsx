@@ -1,48 +1,41 @@
 import { useState } from "react";
-import { api } from "../api";
 
 const initialForm = { name: "", email: "", phone: "", message: "" };
 
-// Client's WhatsApp business number (with country code, no + or spaces)
-const WHATSAPP_NUMBER = "917868041691";
-
-function buildWhatsAppLink(form) {
+function buildWhatsAppLink(number, form) {
   const text =
     `New enquiry from the website:\n` +
     `Name: ${form.name}\n` +
     `Phone: ${form.phone}\n` +
     `Email: ${form.email}\n` +
     `Message: ${form.message}`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 }
 
-export default function Contact({ company }) {
+export default function Contact({ company, bare = false }) {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ state: "idle", error: "" });
+  const whatsappNumber = company?.whatsappNumber || "917868041691";
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    setStatus({ state: "submitting", error: "" });
-    try {
-      // Save to the database first so nothing is lost even if the visitor
-      // closes the WhatsApp tab without hitting send there.
-      await api.submitContact(form);
-      setStatus({ state: "success", error: "" });
+    setStatus({ state: "success", error: "" });
 
-      // Hand off to WhatsApp with the message pre-filled, addressed to the
-      // client's business number. The visitor just needs to tap Send.
-      window.open(buildWhatsAppLink(form), "_blank", "noopener,noreferrer");
+    // Hand off to WhatsApp with the message pre-filled, addressed to the
+    // client's business number. The visitor just needs to tap Send.
+    window.open(buildWhatsAppLink(whatsappNumber, form), "_blank", "noopener,noreferrer");
 
-      setForm(initialForm);
-    } catch (err) {
-      setStatus({ state: "error", error: err.message });
-    }
+    setForm(initialForm);
   };
 
   return (
-    <section id="contact" className="section" style={{ background: "var(--parchment-deep)" }}>
+    <section
+      id="contact"
+      className={bare ? undefined : "section"}
+      style={bare ? undefined : { background: "var(--parchment-deep)" }}
+    >
       <div className="container two-col">
         <div>
           <p className="eyebrow">Get In Touch</p>
@@ -104,21 +97,18 @@ export default function Contact({ company }) {
             />
           </div>
 
-          <button type="submit" className="btn btn--primary" disabled={status.state === "submitting"}>
-            {status.state === "submitting" ? "Sending…" : "Send via WhatsApp"}
+          <button type="submit" className="btn btn--primary">
+            Send via WhatsApp
           </button>
 
           {status.state === "success" && (
             <p style={{ color: "var(--moss)", margin: 0 }}>
-              Saved — a WhatsApp tab has opened with your message ready to send.
+              A WhatsApp tab has opened with your message ready to send.
             </p>
-          )}
-          {status.state === "error" && (
-            <p style={{ color: "#a33", margin: 0 }}>{status.error}</p>
           )}
 
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            href={`https://wa.me/${whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{
