@@ -45,21 +45,6 @@ export const catalogues = [
       "/images/catalogues/short-core-veneer/5.jpg",
     ],
   },
-  {
-    slug: "core-veneer-scrap",
-    name: "Core Veneer Scrap",
-    shortDescription:
-      "Sorted core veneer scrap and offcuts, ideal for cost-effective, sustainable panel filling.",
-    description:
-      "Core Veneer Scrap consists of sorted offcuts and trims from our core veneer production, offering plywood and block board manufacturers a cost-effective, sustainable input without compromising on the plantation-hardwood quality behind every Bhalothia-style batch.",
-    cover: "/images/catalogues/core-veneer-scrap/cover.jpg",
-    photos: [
-      "/images/catalogues/core-veneer-scrap/1.jpg",
-      "/images/catalogues/core-veneer-scrap/2.jpg",
-      "/images/catalogues/core-veneer-scrap/3.jpg",
-      "/images/catalogues/core-veneer-scrap/4.jpg",
-    ],
-  },
 ];
 
 export const companyInfo = {
