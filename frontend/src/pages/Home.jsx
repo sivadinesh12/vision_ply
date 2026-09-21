@@ -4,7 +4,6 @@ import Hero from "../components/Hero";
 import VeneerDivider from "../components/VeneerDivider";
 import CatalogueCard from "../components/CatalogueCard";
 import Specs from "../components/Specs";
-import Brands from "../components/Brands";
 
 export default function Home() {
   return (
@@ -66,7 +65,6 @@ export default function Home() {
       </section>
 
       <Specs company={companyInfo} />
-      <Brands company={companyInfo} />
       <VeneerDivider tone="dark" />
 
       {/* Contact CTA */}
