@@ -45,30 +45,15 @@ export const catalogues = [
       "/images/catalogues/short-core-veneer/5.jpg",
     ],
   },
-  {
-    slug: "core-veneer-scrap",
-    name: "Core Veneer Scrap",
-    shortDescription:
-      "Sorted core veneer scrap and offcuts, ideal for cost-effective, sustainable panel filling.",
-    description:
-      "Core Veneer Scrap consists of sorted offcuts and trims from our core veneer production, offering plywood and block board manufacturers a cost-effective, sustainable input without compromising on the plantation-hardwood quality behind every Bhalothia-style batch.",
-    cover: "/images/catalogues/core-veneer-scrap/cover.jpg",
-    photos: [
-      "/images/catalogues/core-veneer-scrap/1.jpg",
-      "/images/catalogues/core-veneer-scrap/2.jpg",
-      "/images/catalogues/core-veneer-scrap/3.jpg",
-      "/images/catalogues/core-veneer-scrap/4.jpg",
-    ],
-  },
 ];
 
 export const companyInfo = {
   name: "OLYMPIC TRADERS",
   tagline: "AN ISO 9001 & 14001, OHSAS 18001 COMPANY",
   aboutShort:
-    "VISIONPLY is the sheer manifestation of how technology, quality and aesthetics could be blended in tandem to meet the variant customer needs.",
+    "OLIMPIC TRADERS is the sheer manifestation of how technology, quality and aesthetics could be blended in tandem to meet the variant customer needs.",
   aboutFull:
-    "VISIONPLY is the sheer manifestation of how technology, quality and aesthetics could be blended in tandem to meet the variant customer needs. Obsession with quality, continuous technological innovation and years and years of understanding of customer needs have made VISIONPLY products the favourite of builders and architects. VISIONPLY has an array of applications in Household and Office interior works, Furniture manufacturing, Wall paneling and Partition works of all sorts.",
+    "OLIMPIC TRADERS is the sheer manifestation of how technology, quality and aesthetics could be blended in tandem to meet the variant customer needs. Obsession with quality, continuous technological innovation and years and years of understanding of customer needs have made VISIONPLY products the favourite of builders and architects. VISIONPLY has an array of applications in Household and Office interior works, Furniture manufacturing, Wall paneling and Partition works of all sorts.",
   whatWeOffer: [
     "Direct sourcing from farmers, promoting sustainability and rural livelihoods",
     "Use of plantation hardwoods, ensuring eco-conscious production",
@@ -77,13 +62,13 @@ export const companyInfo = {
   ],
   phone: "+91 95005 75127",
   altPhone: "0422 2360327",
-  whatsappNumber: "917868041691",
+  whatsappNumber: "9195005 75127",
   email: "info@afyun.com",
   address: "Afyun Plywood Industries (South India)",
   // Same platforms as the reference site (bhalothiaudyog.com):
   // WhatsApp, Instagram, X (Twitter), YouTube, LinkedIn.
   social: {
-    whatsapp: "https://wa.me/917868041691",
+    whatsapp: "https://wa.me/919500575127",
     instagram: "https://www.instagram.com/",
     x: "https://x.com/",
     youtube: "https://www.youtube.com/",
